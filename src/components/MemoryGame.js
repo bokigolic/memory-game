@@ -6,7 +6,7 @@ const MemoryGame = () => {
   const initialState = [
     null,
     null,
-    null,
+    "boll",
     null,
     null,
     null,
@@ -32,7 +32,7 @@ const MemoryGame = () => {
         {
           state.map((card, index) => {
             return (
-              <MemoryGameCard  key={index}/>
+              <MemoryGameCard  key={index} card={card}/>
             )
           })
         }

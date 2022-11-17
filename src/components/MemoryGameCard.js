@@ -1,7 +1,17 @@
-const MemoryGameCard = () => {
+const MemoryGameCard = (props) => {
+  const card = props.card;
+
+  let jsx = null;
+  if (card !== null) {
+    jsx = (
+    <div className="memory-card"></div>
+    )
+  }
+
+
   return (
     <div className="item">
-      <div className="memory-card"></div>
+      {jsx}
     </div>
   )
 };
