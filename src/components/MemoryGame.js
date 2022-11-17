@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MemoryGameCard from "./MemoryGameCard";
 
 const MemoryGame = () => {
 
@@ -23,23 +24,18 @@ const MemoryGame = () => {
 
   const [state, setState] = useState(initialState)
 
-  
+
   return (
-    <div>
+    <div className="board-for-margin">
       <h1>Memory Game</h1>
       <div className="memory-board">
-      {
-        state.map((card) => {
-          return (
-            <div className="item">
-              <div className="memory-card"></div>
-            </div>
-    
-          )
-        })
-      }
-
-        
+        {
+          state.map((card, index) => {
+            return (
+              <MemoryGameCard  key={index}/>
+            )
+          })
+        }
       </div>
     </div>
   )
