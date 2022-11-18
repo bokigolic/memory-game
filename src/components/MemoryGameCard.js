@@ -1,17 +1,31 @@
 const MemoryGameCard = (props) => {
   const card = props.card;
-  const clickOnCard = props.clickOnCard;
   const index = props.index;
+  const isOpened = props.isOpened
+  const clickOnCard = props.clickOnCard;
 
 
   const handleClick = (e) => {
     clickOnCard(index)
   }
+
+
   let jsx = null;
   if (card !== null) {
-    jsx = (
-      <div className="memory-card" onClick={handleClick}>{card}</div>
-    )
+    // means, the card is on the board
+    if (isOpened === true) {
+      // opened
+      jsx = (
+        <div className="memory-card opened" >{card}</div>
+      )
+    } else {
+      //closed
+      jsx = (
+        <div className="memory-card" onClick={handleClick}></div>
+      )
+    }
+  } else {
+    // the card is gone from board
   }
 
 
