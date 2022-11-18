@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getMemoryGameShuffledCards } from "../utils/memory-game-utils";
 import MemoryGameCard from "./MemoryGameCard";
 
 const MemoryGame = () => {
@@ -23,7 +24,11 @@ const MemoryGame = () => {
   ]
 
   const [state, setState] = useState(initialState)
-
+  const handleRestart = () => {
+    // Writes a new series of 16 shuffled cards in the state
+    const freshShuffledSixtinCards = getMemoryGameShuffledCards()
+    setState(freshShuffledSixtinCards)
+  }
 
   return (
     <div className="board-for-margin">
@@ -32,10 +37,11 @@ const MemoryGame = () => {
         {
           state.map((card, index) => {
             return (
-              <MemoryGameCard  key={index} card={card}/>
+              <MemoryGameCard key={index} card={card} />
             )
           })
         }
+        <button className="button" onClick={handleRestart}>Reset</button>
       </div>
     </div>
   )
