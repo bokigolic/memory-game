@@ -30,9 +30,13 @@ const MemoryGame = () => {
     if (firstOpenedCardIndex !== null && secondOpenedCardIndex !== null) {
       // 2 card are oppened
 
-      //... close bouth
-      setFirstCardOpenedIndex(null)
-      setSecondCardOpenedIndex(null)
+      // closing both cards but with a slight delay
+      setTimeout(() => {
+        //... close bouth
+        setFirstCardOpenedIndex(null)
+        setSecondCardOpenedIndex(null)
+
+      }, 1000)
 
     }
 
@@ -70,9 +74,14 @@ const MemoryGame = () => {
       <h1>Memory Game</h1>
       <div className="memory-board">
         {
+          // write all cards
           state.map((card, index) => {
+            let isOpened = false;
+            if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
+              isOpened = true;
+            }
             return (
-              <MemoryGameCard key={index} card={card} index={index} clickOnCard={clickOnCard} />
+              <MemoryGameCard key={index} card={card} index={index} isOpened={isOpened} clickOnCard={clickOnCard} />
             )
           })
         }
