@@ -27,7 +27,7 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border: 4px inset rgb(202, 218, 242);
+  border: 4px inset rgb(191, 211, 241);
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
   
 
@@ -47,4 +47,21 @@ html {
 
     }
   }
+
+  .button{
+    border: 2px solid rgb(43, 139, 250);
+      border-radius: 5px;
+      box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
+      padding: 8px;
+      margin: 15px;
+      cursor: pointer;
+      transition-duration: 1.4s;
+      
+
+    }
+    .button:hover{
+      background-color: rgb(183, 183, 245);
+    }
+
 }
+
