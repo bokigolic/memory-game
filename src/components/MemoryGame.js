@@ -32,9 +32,35 @@ const MemoryGame = () => {
 
       // closing both cards but with a slight delay
       setTimeout(() => {
+        const firstCard = state[firstOpenedCardIndex];
+        const secondCard = state[secondOpenedCardIndex];
+        if (firstCard === secondCard) {
+          // they are the same
+          // if 2 card is same, upate state to null
+          const updatedState = state.map((card, index) => {
+            if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
+              return null; // return null in those 2 card
+            }
+            return card; // All other cards are unchanged
+          });
+          setState(updatedState);
+          // Due to the correction of the code, we enter null in the cards that are removed from the board so we can open them further.
+          setFirstCardOpenedIndex(null)
+          setSecondCardOpenedIndex(null)
+
+
+
+        } else {
+          // not same
+          setFirstCardOpenedIndex(null)
+          setSecondCardOpenedIndex(null)
+          //if card is not same, closing bouth 
+        }
+
+
+
+
         //... close bouth
-        setFirstCardOpenedIndex(null)
-        setSecondCardOpenedIndex(null)
 
       }, 1000)
 

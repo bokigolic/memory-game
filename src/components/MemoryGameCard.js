@@ -18,7 +18,7 @@ const MemoryGameCard = (props) => {
       jsx = (
         <div className="memory-card opened" >{card}</div>
       )
-    } else {
+    } else { 
       //closed
       jsx = (
         <div className="memory-card" onClick={handleClick}></div>
