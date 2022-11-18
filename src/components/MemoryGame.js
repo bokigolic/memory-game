@@ -6,7 +6,7 @@ const MemoryGame = () => {
   const initialState = [
     null,
     null,
-    'ball',
+    null,
     null,
     null,
     null,
