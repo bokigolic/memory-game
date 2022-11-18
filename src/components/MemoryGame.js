@@ -25,6 +25,18 @@ const MemoryGame = () => {
   const [firstOpenedCardIndex, setFirstCardOpenedIndex] = useState(null);
   const [secondOpenedCardIndex, setSecondCardOpenedIndex] = useState(null);
 
+  useEffect(() => {
+    let done = true;
+    state.forEach(card => {
+      if (card !== null) {
+        done = false;
+
+      }
+    });
+    if (done) {
+      window.alert("Game over, click restart if you wnat play again")
+    }
+  }, [state])
 
   useEffect(() => {
     if (firstOpenedCardIndex !== null && secondOpenedCardIndex !== null) {
