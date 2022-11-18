@@ -34,7 +34,7 @@ const MemoryGame = () => {
       }
     });
     if (done) {
-      window.alert("Game over, click restart if you wnat play again")
+      window.alert("Game over!!! Click 'RESTART' if you want a new game")
     }
   }, [state])
 

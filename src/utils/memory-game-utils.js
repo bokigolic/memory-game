@@ -19,6 +19,25 @@ const allCards = [
   'HART',
 ];
 
+const cardImages = {
+  'BALL': 'ball.jpg',
+  'RABIT': 'rabit.jpg',
+  'BEAR': 'bear.jpg',
+  'STAR': 'star.jpg',
+  'SUN': 'sun.jpg',
+  'ELEPHANT': 'elephant.jpg',
+  'TURTLE': 'turtle.jpg',
+  'HART': 'hart.jpg',
+};
+
+export const getMemoryCardImgSrc = (card) => {
+  let src = ''; //if is empty, default image
+  if (cardImages[card]) {
+    src = '/static/img/memory-card-images/' + cardImages[card];
+
+  }
+  return src;
+}
 
 
 export const getMemoryGameShuffledCards = () => {
@@ -41,3 +60,5 @@ export const getMemoryGameShuffledCards = () => {
   return cards
 
 }
+
+
