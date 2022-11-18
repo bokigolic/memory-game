@@ -1,3 +1,5 @@
+import { getMemoryCardImgSrc } from "../utils/memory-game-utils";
+
 const MemoryGameCard = (props) => {
   const card = props.card;
   const index = props.index;
@@ -16,7 +18,10 @@ const MemoryGameCard = (props) => {
     if (isOpened === true) {
       // opened
       jsx = (
-        <div className="memory-card opened" >{card}</div>
+        <div className="memory-card opened">
+          <img src={getMemoryCardImgSrc(card)}/>
+          <span>{card}</span>
+          </div>
       )
     } else { 
       //closed

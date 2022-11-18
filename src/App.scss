@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   transition: all 0.2s ease;
- 
+
 }
 
 html {
@@ -15,13 +15,13 @@ html {
 
 
 /*Board styling*/
-.board-for-margin{
+.board-for-margin {
   margin: 50px 50px;
 
 }
 
 .memory-board {
-  width:370px;
+  width: 370px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -29,7 +29,7 @@ html {
   justify-content: center;
   border: 4px inset rgb(191, 211, 241);
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
-  
+
 
   .item {
     width: 90px;
@@ -38,36 +38,60 @@ html {
 
 
     .memory-card {
+      position: relative;
       width: 80px;
       height: 80px;
       border: 2px solid rgb(43, 139, 250);
       border-radius: 10px;
       box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
       background-color: rgb(227, 223, 223);
+      text-align: center;
+      font-size: 10px;
 
-      &.opened{
+      &.opened {
         background-color: rgb(189, 231, 243);
+        padding: 5px;
+
+        img {
+          width: 90%;
+          height: auto;
+          display: flex;
+          bottom: 15px;
+       
+          
+
+        }
+
+        span{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(255,255,255,0.7);
+          border-radius: 8px;
+
+        }
       }
 
 
     }
   }
 
-  .button{
+  .button {
     border: 2px solid rgb(43, 139, 250);
-      border-radius: 5px;
-      box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
-      padding: 5px;
-      margin: 12px;
-      width: 120px;
-      cursor: pointer;
-      transition-duration: 1.4s;
-      
+    border-radius: 5px;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
+    padding: 5px;
+    margin: 12px;
+    width: 120px;
+    cursor: pointer;
+    transition-duration: 1.4s;
 
-    }
-    .button:hover{
-      background-color: rgb(183, 183, 245);
-    }
+
+  }
+
+  .button:hover {
+    background-color: rgb(183, 183, 245);
+  }
 
 }
-
