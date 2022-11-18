@@ -23,7 +23,7 @@ const MemoryGame = () => {
   ]
   const [state, setState] = useState(initialState);;
   const [firstOpenedCardIndex, setFirstCardOpenedIndex] = useState(null);
-  const [secondOpenedCardIndex, setSecondCardOpenedIndex] = useState(5);
+  const [secondOpenedCardIndex, setSecondCardOpenedIndex] = useState(null);
 
 
   useEffect(() => {
@@ -50,6 +50,19 @@ const MemoryGame = () => {
 
   const clickOnCard = (index) => {
     console.log("click on card", index)
+    // First check if the first one is open
+    if (firstOpenedCardIndex === null) {
+      // first is not open, we opening now
+      setFirstCardOpenedIndex(index)
+
+    } else {
+      if (secondOpenedCardIndex === null) {
+        // first card is open, but second is still closed
+        // opening second card
+        setSecondCardOpenedIndex(index);
+
+      }
+    }
 
   }
   return (
