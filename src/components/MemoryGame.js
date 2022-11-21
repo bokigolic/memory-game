@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMemoryGameShuffledCards } from "../utils/memory-game-utils";
+import { doneTiming, getMemoryGameShuffledCards, startTiming } from "../utils/memory-game-utils";
 import MemoryGameCard from "./MemoryGameCard";
 
 const MemoryGame = () => {
@@ -34,12 +34,24 @@ const MemoryGame = () => {
     name: 'Alpha',
     usedTime: 0,
     score: 0 // number of pairs
-
   }
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState([initialPlayer]);
 
-
-
+  const updatePlayerState = (usedTime, newPoints) => {
+    const updatedPlayers = players.map((player, index) => {
+      if (currentPlayer === index) {
+        // this is player who play
+        const updatedPlayer = {
+          ...player,
+          usedTime: player.usedTime + usedTime,
+          score: player.score + newPoints
+        }
+        return updatedPlayer;
+      }
+      return player // all others players unchanged
+    });
+    setPlayers(updatedPlayers)
+  }
   useEffect(() => {
     if (started === true) {
       let done = true;
@@ -51,6 +63,7 @@ const MemoryGame = () => {
       if (done) {
         window.alert("Game over!!! Click 'RESTART' if you want a new game")
         setStarted(false) // tha game is done
+        // TODO vhen game i s done, stop timing for current player
       }
     }
   }, [state])
@@ -61,10 +74,12 @@ const MemoryGame = () => {
 
       // closing both cards but with a slight delay
       setTimeout(() => {
+        let newPoints = 0;
         const firstCard = state[firstOpenedCardIndex];
         const secondCard = state[secondOpenedCardIndex];
         if (firstCard === secondCard) {
           // they are the same
+          newPoints = 1;
           // if 2 card is same, upate state to null
           const updatedState = state.map((card, index) => {
             if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
@@ -83,20 +98,31 @@ const MemoryGame = () => {
           setSecondCardOpenedIndex(null)
           //if card is not same, closing bouth 
         }
-        //... close bouth
+        //... close bouth, 
+        // move is done, 
+        // TODO stopping timing for players end write in state of this player
+        const usedTime = doneTiming();
+        updatePlayerState(usedTime, newPoints)
+        // TODO starding new timing for players
+        // if game is done, stoping timing
+
+        startTiming();
       }, 1000)
     }
 
   }, [firstOpenedCardIndex, secondOpenedCardIndex])
 
 
-
-
   const handleRestart = () => {
     // Writes a new series of 16 shuffled cards in the state
     const freshShuffledSixtinCards = getMemoryGameShuffledCards() // card are shuffled and organized
+
     setState(freshShuffledSixtinCards)
+    setPlayers([initialPlayer])
     setStarted(true)  // game is started
+
+    // TOOD stardet timing for player
+    startTiming();
   }
 
   const clickOnCard = (index) => {
