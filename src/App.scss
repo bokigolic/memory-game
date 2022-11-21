@@ -11,6 +11,21 @@ html {
 /*Board styling*/
 .board-for-margin {
   margin: 50px 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  .memory-board-title{
+    width: 370px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px inset rgb(191, 211, 241);
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
+  
+  }
 }
 
 .memory-board {

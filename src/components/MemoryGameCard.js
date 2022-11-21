@@ -11,7 +11,6 @@ const MemoryGameCard = (props) => {
     clickOnCard(index)
   }
 
-
   let jsx = null;
   if (card !== null) {
     // means, the card is on the board
@@ -42,7 +41,6 @@ const MemoryGameCard = (props) => {
         </div>
         <div className="back">
           <div className="memory-card" onClick={handleClick}></div>
-
         </div>
       </div>
     )
@@ -50,8 +48,6 @@ const MemoryGameCard = (props) => {
   } else {
     // the card is gone from board
   }
-
-
   return (
     <div className="item">
       {jsx}
