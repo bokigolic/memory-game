@@ -62,3 +62,17 @@ export const getMemoryGameShuffledCards = () => {
 }
 
 
+let timeStart = 0;// Time in moment when timing is started
+
+export const startTiming = () =>{
+  timeStart = Date.now(); //gives the current number of miliseconds from the computer clock
+
+}
+
+export const doneTiming = () =>{
+  //Measure how much time has passed since the timeStart and return the measured time spentedTime
+  const timeNow = Date.now();
+  const usedTime = timeNow - timeStart; // used time
+  return usedTime
+
+}
