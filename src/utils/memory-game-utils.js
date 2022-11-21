@@ -76,3 +76,8 @@ export const doneTiming = () =>{
   return usedTime
 
 }
+
+export const miliSecondsToSeconds = (ms) =>{
+  const s = ms / 1000;
+  return s;
+}
