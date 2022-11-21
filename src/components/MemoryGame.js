@@ -25,16 +25,33 @@ const MemoryGame = () => {
   const [firstOpenedCardIndex, setFirstCardOpenedIndex] = useState(null);
   const [secondOpenedCardIndex, setSecondCardOpenedIndex] = useState(null);
 
-  useEffect(() => {
-    let done = true;
-    state.forEach(card => {
-      if (card !== null) {
-        done = false;
+  //state to check if the game is started or finished
+  const [started, setStarted] = useState(false)
 
+  //state for players
+  const [currentPlayer, setCurrentPlayer] = useState(0);
+  const initialPlayer = {
+    name: 'Alpha',
+    usedTime: 0,
+    score: 0 // number of pairs
+
+  }
+  const [players, setPlayers] = useState([]);
+
+
+
+  useEffect(() => {
+    if (started === true) {
+      let done = true;
+      state.forEach(card => {
+        if (card !== null) {
+          done = false;
+        }
+      });
+      if (done) {
+        window.alert("Game over!!! Click 'RESTART' if you want a new game")
+        setStarted(false) // tha game is done
       }
-    });
-    if (done) {
-      window.alert("Game over!!! Click 'RESTART' if you want a new game")
     }
   }, [state])
 
@@ -60,24 +77,15 @@ const MemoryGame = () => {
           setFirstCardOpenedIndex(null)
           setSecondCardOpenedIndex(null)
 
-
-
         } else {
           // not same
           setFirstCardOpenedIndex(null)
           setSecondCardOpenedIndex(null)
           //if card is not same, closing bouth 
         }
-
-
-
-
         //... close bouth
-
       }, 1000)
-
     }
-
 
   }, [firstOpenedCardIndex, secondOpenedCardIndex])
 
@@ -86,8 +94,9 @@ const MemoryGame = () => {
 
   const handleRestart = () => {
     // Writes a new series of 16 shuffled cards in the state
-    const freshShuffledSixtinCards = getMemoryGameShuffledCards()
+    const freshShuffledSixtinCards = getMemoryGameShuffledCards() // card are shuffled and organized
     setState(freshShuffledSixtinCards)
+    setStarted(true)  // game is started
   }
 
   const clickOnCard = (index) => {
@@ -109,21 +118,22 @@ const MemoryGame = () => {
   }
   return (
     <div className="board-for-margin">
-      <h1>Memory Game</h1>
-      <div className="memory-board">
-        {
-          // write all cards
-          state.map((card, index) => {
-            let isOpened = false;
-            if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
-              isOpened = true;
-            }
-            return (
-              <MemoryGameCard key={index} card={card} index={index} isOpened={isOpened} clickOnCard={clickOnCard} />
-            )
-          })
-        }
-        <button className="button" onClick={handleRestart}>Reset</button>
+      <div><h1 className="memory-board-title">Memory Game</h1>
+        <div className="memory-board">
+          {
+            // write all cards
+            state.map((card, index) => {
+              let isOpened = false;
+              if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
+                isOpened = true;
+              }
+              return (
+                <MemoryGameCard key={index} card={card} index={index} isOpened={isOpened} clickOnCard={clickOnCard} />
+              )
+            })
+          }
+          <button className="button" onClick={handleRestart}>Reset</button>
+        </div>
       </div>
     </div>
   )
