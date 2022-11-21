@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { doneTiming, getMemoryGameShuffledCards, miliSecondsToSeconds, startTiming } from "../utils/memory-game-utils";
+import { doneTiming, getMemoryGameShuffledCards, miliSecondsToDisplayFormat, startTiming } from "../utils/memory-game-utils";
 import MemoryGameCard from "./MemoryGameCard";
 
 const MemoryGame = () => {
@@ -159,23 +159,25 @@ const MemoryGame = () => {
             })
           }
           <div>
-            <table>
+            <br/>
+            <br/>
+            <table className="memory-game-score">
               <thead>
                 <tr>
-                  <th>Player name</th>
-                  <th>Time used</th>
-                  <th>Score</th>
+                  <th className="text-left">Player name</th>
+                  <th className="text-right">Time used</th>
+                  <th className="text-right">Score</th>
                 </tr>
               </thead>
               <tbody>
                 {
                   players.map((player, index) => {
-                    const displayTime = miliSecondsToSeconds(player.usedTime)
+                    const displayTime = miliSecondsToDisplayFormat(player.usedTime)
                     return (
                       <tr key={index}>
-                        <td>{player.name}</td>
-                        <td>{displayTime}</td>
-                        <td>{player.score}</td>
+                        <td className="text-left">{player.name}</td>
+                        <td className="text-number">{displayTime}</td>
+                        <td className="text-number">{player.score}</td>
                       </tr>
                     )
                   })

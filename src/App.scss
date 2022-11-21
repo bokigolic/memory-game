@@ -3,6 +3,26 @@
   transition: all 0.2s ease;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-number {
+  text-align: right;
+  font-family: monospace;
+}
+
+
+
+
 html {
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
@@ -16,15 +36,15 @@ html {
   flex-direction: row;
   justify-content: center;
 
-  .memory-board-title{
+  .memory-board-title {
     width: 370px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
     border: 4px inset rgb(191, 211, 241);
     box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
-  
+
   }
 }
 
@@ -81,13 +101,13 @@ html {
         text-align: center;
         font-size: 12px;
         cursor: pointer;
-        
-        span{
+
+        span {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          background-color: rgba(191, 211, 241,0.8);
+          background-color: rgba(191, 211, 241, 0.8);
           border-radius: 8px;
         }
 
@@ -97,8 +117,8 @@ html {
         }
       }
 
-      .front{
-        .memory-card{
+      .front {
+        .memory-card {
           background-color: white;
         }
       }
@@ -120,4 +140,20 @@ html {
   .button:hover {
     background-color: rgb(183, 183, 245);
   }
+}
+
+table.memory-game-score{
+width: 330px;
+
+border-spacing: 0px;
+border-collapse: collapse;
+
+th, td {
+  
+  border: 2px solid rgb(43, 139, 250);
+    border-radius: 5px;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 5px 11px 5px rgb(0 0 0 / 30%);
+  padding: 0 3px;
+ 
+}
 }
