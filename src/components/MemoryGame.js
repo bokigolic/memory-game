@@ -143,56 +143,58 @@ const MemoryGame = () => {
 
   }
   return (
-    <div className="board-for-margin">
-      <div><h1 className="memory-board-title">Memory Game</h1>
-        <div className="memory-board">
-          {
-            // write all cards
-            state.map((card, index) => {
-              let isOpened = false;
-              if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
-                isOpened = true;
-              }
-              return (
-                <MemoryGameCard key={index} card={card} index={index} isOpened={isOpened} clickOnCard={clickOnCard} />
-              )
-            })
-          }
-          <div>
-            <br/>
-            <br/>
-            <table className="memory-game-score">
-              <thead>
-                <tr>
-                  <th className="text-left">Player name</th>
-                  <th className="text-right">Time used</th>
-                  <th className="text-right">Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  players.map((player, index) => {
-                    const displayTime = miliSecondsToDisplayFormat(player.usedTime)
-                    return (
-                      <tr key={index}>
-                        <td className="text-left">{player.name}</td>
-                        <td className="text-number">{displayTime}</td>
-                        <td className="text-number">{player.score}</td>
-                      </tr>
-                    )
-                  })
+    <div className="background">
+      <div className="board-for-margin">
+        <div><h1 className="memory-board-title">Memory Game</h1>
+          <div className="memory-board">
+            {
+              // write all cards
+              state.map((card, index) => {
+                let isOpened = false;
+                if (index === firstOpenedCardIndex || index === secondOpenedCardIndex) {
+                  isOpened = true;
                 }
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <p>
-              <button className="button" onClick={handleRestart}>Reset</button>
-            </p>
+                return (
+                  <MemoryGameCard key={index} card={card} index={index} isOpened={isOpened} clickOnCard={clickOnCard} />
+                )
+              })
+            }
+            <div>
+              <br />
+              <br />
+              <table className="memory-game-score">
+                <thead>
+                  <tr>
+                    <th className="text-left">Player name</th>
+                    <th className="text-right">Time used</th>
+                    <th className="text-right">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    players.map((player, index) => {
+                      const displayTime = miliSecondsToDisplayFormat(player.usedTime)
+                      return (
+                        <tr key={index}>
+                          <td className="text-left">{player.name}</td>
+                          <td className="text-number">{displayTime}</td>
+                          <td className="text-number">{player.score}</td>
+                        </tr>
+                      )
+                    })
+                  }
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p>
+                <button className="button" onClick={handleRestart}>Reset</button>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
+      )
 };
-export default MemoryGame;
+      export default MemoryGame;
