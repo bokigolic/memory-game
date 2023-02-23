@@ -33,7 +33,8 @@ const cardImages = {
 export const getMemoryCardImgSrc = (card) => {
   let src = ''; //if is empty, default image
   if (cardImages[card]) {
-    src = '/static/img/memory-card-images/' + cardImages[card];
+    // src = '/static/img/memory-card-images/' + cardImages[card];
+    src = 'static/img/memory-card-images/' + cardImages[card];
 
   }
   return src;

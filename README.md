@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Memory Game React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple game where you can test your memory skills by finding pairs of matching cards on a 4x4 board. You can also measure your time, score, and player name.
 
-## Available Scripts
+### Getting Started
+To use this app, you will need to clone the repository and run npm install followed by npm start. This will start the development server, and you can access the app by navigating to http://localhost:3000 in your web browser.
 
-In the project directory, you can run:
+### Dependencies
+The following dependencies are required to run this app:
 
-### `npm start`
+ - "@testing-library/jest-dom": "^5.16.5",
+ - "@testing-library/react": "^13.4.0",
+ - "@testing-library/user-event": "^13.5.0",
+ - "react": "^18.2.0",
+ - "react-dom": "^18.2.0",
+ - "react-scripts": "5.0.1",
+ - "sass": "^1.56.1",
+ - "web-vitals": "^2.1.4"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Deployment on HostGator
+This app is deployed on HostGator, you can see 
+- [HERE](http://www.memory-game.bojangolic.com/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
+Here is a screenshot of the Memory Game React App in action:
+<img width="931" alt="Screenshot 2022-08-31 230954" src="https://user-images.githubusercontent.com/71577349/187823899-78db5abf-21ec-4e8a-8107-f67611daf8ff.png">
 
-### `npm run build`
+Screenshot of the Memory Game React App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### How to Play
+- Start the game by clicking on a card. The card will automatically flip over to reveal its image.
+- Click on another card to try and find its matching pair. If the cards match, you will receive points.
+- If the cards do not match, they will flip back over, and you can continue trying to find matching pairs.
+- The game ends when all pairs have been found.
+- You can see your score and time on the top of the board.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
+If you would like to contribute to this project, please feel free to submit a pull request. We welcome all contributions.
 
-### `npm run eject`
+## Credits
+This app was created by Bojan Golic. If you have any questions or comments, please feel free to contact us at golichbojan@gmail.com. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Thank you for playing!
